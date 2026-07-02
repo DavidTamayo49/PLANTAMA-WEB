@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plantama — Vivero y Paisajismo</title>
+  <meta name="description" content="Plantama: expertos en paisajismo, diseño de jardines, mantenimiento de áreas verdes y vivero en Colombia." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* ── INDEX ESPECÍFICO ── */
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 92px;
+      overflow: hidden;
+    }
+    .hero-content {
+      padding: 80px 48px 80px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .hero-eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--verde);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px; height: 2px;
+      background: var(--verde);
+      border-radius: 1px;
+    }
+    .hero h1 {
+      margin-bottom: 24px;
+      max-width: 520px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--verde-light);
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid var(--gris-borde);
+      width: 100%;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--verde);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--texto-suave);
+      margin-top: 4px;
+    }
+
+    .hero-visual {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(255,255,255,0.18) 0%, transparent 40%);
+      z-index: 1;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 48px;
+      left: -24px;
+      background: var(--blanco);
+      border-radius: var(--radio);
+      padding: 18px 22px;
+      box-shadow: var(--sombra);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 220px;
+    }
+    .hero-badge-icon {
+      width: 44px; height: 44px;
+      background: var(--verde-pale);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-badge-icon svg { color: var(--verde); }
+    .hero-badge-text .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--verde);
+      line-height: 1;
+    }
+    .hero-badge-text .lbl {
+      font-size: 0.75rem;
+      color: var(--texto-suave);
+    }
+
+    /* SERVICIOS PREVIEW */
+    .servicios-preview {
+      padding: 100px 0;
+      background: var(--gris-fondo);
+    }
+    .seccion-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .serv-card {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      overflow: hidden;
+      border: 1px solid var(--gris-borde);
+      transition: all var(--transicion);
+      cursor: pointer;
+    }
+    .serv-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--sombra);
+      border-color: var(--verde);
+    }
+    .serv-card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .serv-card-body {
+      padding: 22px 20px;
+    }
+    .serv-icon {
+      width: 42px; height: 42px;
+      background: var(--verde-pale);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+      color: var(--verde);
+    }
+    .serv-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .serv-card p {
+      font-size: 0.87rem;
+    }
+    .serv-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--verde);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: gap var(--transicion);
+    }
+    .serv-card:hover .serv-card-link { gap: 10px; }
+
+    /* SERV DESTACADO */
+    .serv-destacado {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .serv-destacado .serv-card-img {
+      height: 100%;
+      min-height: 260px;
+    }
+    .serv-destacado .serv-card-body {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .serv-destacado h3 {
+      font-size: 1.4rem;
+    }
+    .badge-principal {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blanco);
+      background: var(--verde);
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+    }
+
+    /* CTA BANNER */
+    .cta-banner {
+      padding: 100px 0;
+    }
+    .cta-inner {
+      background: var(--verde);
+      border-radius: 20px;
+      padding: 72px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-inner::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .cta-inner::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: 120px;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .cta-text h2 { color: var(--blanco); max-width: 480px; }
+    .cta-text p { color: rgba(255,255,255,0.78); margin-top: 12px; max-width: 420px; }
+    .cta-actions { display: flex; gap: 16px; flex-shrink: 0; flex-wrap: wrap; }
+    .btn-blanco {
+      background: var(--blanco);
+      color: var(--verde);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.87rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--transicion);
+    }
+    .btn-blanco:hover {
+      background: var(--verde-pale);
+      transform: translateY(-2px);
+    }
+    .btn-outline-blanco {
+      background: transparent;
+      color: var(--blanco);
+      border: 2px solid rgba(255,255,255,0.5);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.87rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--transicion);
+    }
+    .btn-outline-blanco:hover {
+      border-color: var(--blanco);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* ── RESPONSIVE INDEX ── */
+    @media (max-width: 1024px) {
+      .servicios-grid { grid-template-columns: 1fr 1fr; }
+      .serv-destacado { grid-column: span 2; }
+    }
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-content {
+        padding: 48px 0 40px;
+        order: 2;
+      }
+      .hero-visual {
+        height: 55vw;
+        min-height: 260px;
+        order: 1;
+      }
+      .hero-badge { left: 12px; bottom: 16px; }
+      .hero-stats { gap: 28px; margin-top: 36px; padding-top: 28px; }
+      .servicios-grid { grid-template-columns: 1fr; }
+      .serv-destacado { grid-column: span 1; grid-template-columns: 1fr; }
+      .serv-destacado .serv-card-img { height: 220px; }
+      .cta-inner { flex-direction: column; padding: 48px 28px; text-align: center; }
+      .cta-text h2, .cta-text p { max-width: 100%; }
+      .cta-actions { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="assets/img/logo.png" alt="Plantama Vivero y Paisajismo" />
+        </a>
+        <a href="index.html" class="btn-home">Inicio</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="nav-mobile">
+    <a href="servicios.html">Servicios</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="container" style="display:contents;">
+      <div class="hero-content container">
+        <span class="hero-eyebrow">Vivero y Paisajismo</span>
+        <h1>Espacios verdes que <em>inspiran</em> y perduran</h1>
+        <p class="hero-desc">
+          Transformamos cualquier espacio en un jardín único. Diseño, siembra y cuidado de áreas verdes con el conocimiento y la pasión de Plantama.
+        </p>
+        <div class="hero-ctas">
+          <a href="servicios.html" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            Ver servicios
+          </a>
+          <a href="contacto.html" class="btn btn-outline">Contáctanos</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">+5</div>
+            <div class="stat-label">Años de experiencia</div>
+          </div>
+          <div>
+            <div class="stat-num">+100</div>
+            <div class="stat-label">Proyectos realizados</div>
+          </div>
+          <div>
+            <div class="stat-num">4</div>
+            <div class="stat-label">Servicios especializados</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img
+          class="hero-img"
+          src="/assets/img/cand_2_home.jpg"
+          alt="Jardín diseñado por Plantama"
+        />
+        </div>
+      </div>
+  
+    </div>
+  </section>
+
+  <!-- ══ SERVICIOS PREVIEW ══ -->
+  <section class="servicios-preview">
+    <div class="container">
+      <div class="seccion-header reveal">
+        <span class="etiqueta">Nuestros servicios</span>
+        <h2>Todo lo que tu espacio verde necesita</h2>
+        <div class="divisor centro"></div>
+        <p style="max-width:520px;margin:0 auto;">Desde el diseño hasta el mantenimiento, ofrecemos soluciones completas para crear y cuidar jardines extraordinarios.</p>
+      </div>
+
+      <div class="servicios-grid">
+
+        <!-- Paisajismo DESTACADO -->
+        <article class="serv-card serv-destacado reveal">
+          <img class="serv-card-img"
+            src="/assets/img/Cand_ser_pais.HEIC"
+            alt="Paisajismo y diseño de jardines" />
+          <div class="serv-card-body">
+            
+            <div class="serv-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/><path d="M6 12a6 6 0 0 1 12 0"/></svg>
+            </div>
+            <h3>Paisajismo y diseño de jardines</h3>
+            <p>Creamos jardines que reflejan tu personalidad. Diseñamos cada espacio con criterio estético y funcional, usando materiales y plantas que se adaptan perfectamente a tu entorno.</p>
+            <a href="servicios.html" class="serv-card-link">
+              Conocer más
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Mantenimiento -->
+        <article class="serv-card reveal">
+          <img class="serv-card-img"
+            src="/assets/img/Cand-man.jpg"
+            alt="Mantenimiento y poda" />
+          <div class="serv-card-body">
+            <div class="serv-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 3 6 6 6-6"/><path d="M3 9h18"/><path d="M3 9l3 12h12l3-12"/></svg>
+            </div>
+            <h3>Mantenimiento y poda</h3>
+            <p>Mantenemos tus áreas verdes siempre en su mejor estado con podas técnicas y programas de cuidado continuos.</p>
+            <a href="servicios.html" class="serv-card-link">
+              Conocer más
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Suministro -->
+        <article class="serv-card reveal">
+          <img class="serv-card-img"
+            src="/assets/img/Cand sum.jpg"
+            alt="Suministro de material vegetal" />
+          <div class="serv-card-body">
+            <div class="serv-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+            </div>
+            <h3>Suministro de material vegetal</h3>
+            <p>Todo tipo de plantas, árboles y material vegetal para tu proyecto, directo de nuestro vivero.</p>
+            <a href="servicios.html" class="serv-card-link">
+              Conocer más
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Asesoría -->
+        <article class="serv-card reveal">
+          <img class="serv-card-img"
+            src="/assets/img/Serv_tec.jpg"
+            alt="Asesoría técnica profesional" />
+          <div class="serv-card-body">
+            <div class="serv-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/><path d="m9 11 3 3L22 4"/></svg>
+            </div>
+            <h3>Asesoría técnica profesional</h3>
+            <p>Guía experta para tomar las mejores decisiones sobre tus espacios verdes, plantas y proyectos de jardinería.</p>
+            <a href="servicios.html" class="serv-card-link">
+              Conocer más
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA BANNER ══ -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="cta-text">
+          <h2>¿Listo para transformar tu espacio?</h2>
+          <p>Cuéntanos tu proyecto y te ayudamos a hacer realidad el jardín que siempre imaginaste.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="https://wa.me/573332234848" target="_blank" rel="noopener" class="btn-blanco">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 5.55 5.55l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            WhatsApp
+          </a>
+          <a href="contacto.html" class="btn-outline-blanco">Ver contacto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/img/logo.png" alt="Plantama" />
+          <p>Expertos en paisajismo, diseño de jardines y vivero. Transformamos espacios con la fuerza de la naturaleza.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="https://wa.me/573332234848" target="_blank" rel="noopener">+57 333 223 4848</a></li>
+            <li><a href="https://instagram.com/plantama_paisajismo" target="_blank" rel="noopener">@plantama_paisajismo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Plantama Vivero y Paisajismo. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

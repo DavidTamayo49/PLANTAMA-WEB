@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios — Plantama Vivero y Paisajismo</title>
+  <meta name="description" content="Conoce todos los servicios de Plantama: paisajismo, mantenimiento, vivero y asesoría técnica profesional." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* ── SERVICIOS PAGE ── */
+
+    /* HERO INTERIOR */
+    .page-hero {
+      padding: 140px 0 80px;
+      background: var(--gris-fondo);
+      text-align: center;
+    }
+    .page-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+    .page-hero p {
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin: 16px auto 0;
+    }
+
+    /* SERVICIO PRINCIPAL */
+    .serv-principal {
+      padding: 100px 0;
+    }
+    .serv-principal-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .serv-principal-img {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .serv-principal-img img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+    .img-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--verde);
+      color: var(--blanco);
+      border-radius: 16px;
+      padding: 20px 24px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.3;
+      box-shadow: var(--sombra);
+      min-width: 140px;
+    }
+    .img-badge small {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    .serv-principal-content h2 {
+      margin-bottom: 20px;
+    }
+    .serv-principal-content p {
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 28px 0 36px;
+    }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: var(--texto-suave);
+    }
+    .check-icon {
+      width: 22px; height: 22px;
+      background: var(--verde-pale);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .check-icon svg { color: var(--verde); }
+
+    /* OTROS SERVICIOS */
+    .otros-servicios {
+      padding: 0 0 100px;
+      background: var(--gris-fondo);
+    }
+    .otros-header {
+      text-align: center;
+      padding: 80px 0 56px;
+    }
+    .otros-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .otro-card {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      overflow: hidden;
+      border: 1px solid var(--gris-borde);
+      transition: all var(--transicion);
+    }
+    .otro-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--sombra);
+      border-color: var(--verde);
+    }
+    .otro-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .otro-card-body {
+      padding: 28px 24px 32px;
+    }
+    .otro-icon {
+      width: 46px; height: 46px;
+      background: var(--verde-pale);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--verde);
+      margin-bottom: 18px;
+    }
+    .otro-card h3 { margin-bottom: 12px; }
+    .otro-card p { font-size: 0.9rem; line-height: 1.7; }
+
+    /* CTA SERVICIOS */
+    .serv-cta {
+      padding: 80px 0;
+      text-align: center;
+    }
+    .serv-cta h2 { margin-bottom: 14px; }
+    .serv-cta p { max-width: 480px; margin: 0 auto 36px; }
+    .serv-cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── RESPONSIVE SERVICIOS ── */
+    @media (max-width: 1024px) {
+      .otros-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .serv-principal-inner { grid-template-columns: 1fr; gap: 40px; }
+      .serv-principal-img img { height: 320px; }
+      .img-badge { right: 12px; bottom: 12px; }
+      .otros-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="assets/img/logo.png" alt="Plantama" />
+        </a>
+        <a href="index.html" class="btn-home">Inicio</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile">
+    <a href="servicios.html">Servicios</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="page-hero">
+    <div class="container reveal">
+      <span class="etiqueta">Lo que hacemos</span>
+      <h1>Nuestros servicios</h1>
+      <div class="divisor centro"></div>
+      <p>Soluciones integrales para crear, renovar y mantener los espacios verdes que imaginas.</p>
+    </div>
+  </section>
+
+  <!-- ══ SERVICIO PRINCIPAL: PAISAJISMO ══ -->
+  <section class="serv-principal">
+    <div class="container">
+      <div class="serv-principal-inner">
+
+        <div class="serv-principal-img reveal">
+          <img
+            src="/assets/img/Cand_ser_pais.HEIC"
+            alt="Paisajismo y diseño de jardines Plantama" />
+        </div>
+
+        <div class="serv-principal-content reveal">
+          <span class="etiqueta">Servicio estrella</span>
+          <h2>Paisajismo y diseño de jardines</h2>
+          <div class="divisor"></div>
+          <p>
+            El paisajismo es el arte de transformar un espacio en una experiencia. En Plantama diseñamos jardines que equilibran belleza, funcionalidad y sostenibilidad, adaptados al clima y la cultura local.
+          </p>
+          <p>
+            Cada proyecto comienza con una visita para entender tu espacio y tus gustos. Luego diseñamos, proponemos y ejecutamos, acompañándote en cada paso.
+          </p>
+          <ul class="checklist">
+            <li>
+              <span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              Diseño personalizado según tu espacio y estilo
+            </li>
+            <li>
+              <span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              Selección experta de plantas y materiales
+            </li>
+            <li>
+              <span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              Ejecución del proyecto con equipo profesional
+            </li>
+            <li>
+              <span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              Proyectos residenciales, comerciales e institucionales
+            </li>
+            <li>
+              <span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              Seguimiento y garantía post-instalación
+            </li>
+          </ul>
+          <a href="https://wa.me/573332234848?text=Hola%20Plantama%2C%20me%20interesa%20el%20servicio%20de%20paisajismo" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 5.55 5.55l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Solicitar cotización
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ OTROS SERVICIOS ══ -->
+  <section class="otros-servicios">
+    <div class="container">
+      <div class="otros-header reveal">
+        <span class="etiqueta">También ofrecemos</span>
+        <h2>Más servicios de Plantama</h2>
+        <div class="divisor centro"></div>
+      </div>
+
+      <div class="otros-grid">
+
+        <!-- Mantenimiento -->
+        <article class="otro-card reveal">
+          <img class="otro-card-img"
+            src="/assets/img/Cand-man.jpg"
+            alt="Mantenimiento y poda de áreas verdes" />
+          <div class="otro-card-body">
+            <div class="otro-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 3 6 6 6-6"/><path d="M3 9h18"/><path d="M3 9l3 12h12l3-12"/></svg>
+            </div>
+            <h3>Mantenimiento y poda de áreas verdes</h3>
+            <p>
+              Mantenemos tus jardines, zonas verdes y plantas siempre en su mejor forma. Ofrecemos planes de mantenimiento periódicos con podas técnicas que favorecen el crecimiento sano y la estética de cada especie.
+            </p>
+          </div>
+        </article>
+
+        <!-- Suministro -->
+        <article class="otro-card reveal">
+          <img class="otro-card-img"
+            src="/assets/img/Cand sum.jpg"
+            alt="Suministro de material vegetal" />
+          <div class="otro-card-body">
+            <div class="otro-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+            </div>
+            <h3>Suministro de material vegetal</h3>
+            <p>
+              Contamos con una amplia variedad de plantas, árboles ornamentales, flores y material vegetal directo de nuestro vivero. Seleccionamos y sembramos según las condiciones de tu espacio y tus preferencias.
+            </p>
+          </div>
+        </article>
+
+        <!-- Asesoría -->
+        <article class="otro-card reveal">
+          <img class="otro-card-img"
+            src="/assets/img/Serv_tec.jpg"
+            alt="Asesoría técnica profesional" />
+          <div class="otro-card-body">
+            <div class="otro-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/><path d="m9 11 3 3L22 4"/></svg>
+            </div>
+            <h3>Asesoría técnica profesional</h3>
+            <p>
+              ¿No sabes qué planta elegir o cómo cuidar tu jardín? Nuestro equipo te orienta con asesoría personalizada sobre especies, sustratos, riego, nutrición y todo lo que necesitas para tomar decisiones acertadas.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <section class="serv-cta">
+    <div class="container reveal">
+      <h2>¿Tienes un proyecto en mente?</h2>
+      <p>Escríbenos y con gusto te asesoramos sin compromiso.</p>
+      <div class="serv-cta-btns">
+        <a href="https://wa.me/573332234848?text=Hola%20Plantama%2C%20quiero%20información%20sobre%20sus%20servicios" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 5.55 5.55l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Hablar por WhatsApp
+        </a>
+        <a href="contacto.html" class="btn btn-outline">Ver contacto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/img/logo.png" alt="Plantama" />
+          <p>Expertos en paisajismo, diseño de jardines y vivero. Transformamos espacios con la fuerza de la naturaleza.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="https://wa.me/573332234848" target="_blank" rel="noopener">+57 333 223 4848</a></li>
+            <li><a href="https://instagram.com/plantama_paisajismo" target="_blank" rel="noopener">@plantama_paisajismo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Plantama Vivero y Paisajismo. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

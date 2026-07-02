@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros — Plantama Vivero y Paisajismo</title>
+  <meta name="description" content="Conoce a Plantama: quiénes somos, nuestra misión y por qué somos tu mejor opción en vivero y paisajismo." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* ── NOSOTROS PAGE ── */
+    .page-hero {
+      padding: 140px 0 80px;
+      background: var(--gris-fondo);
+      text-align: center;
+    }
+
+    /* QUIÉNES SOMOS */
+    .quienes {
+      padding: 100px 0;
+    }
+    .quienes-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .quienes-imgs {
+      position: relative;
+    }
+    .img-principal {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+    }
+    .img-secundaria {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 52%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 6px solid var(--blanco);
+      box-shadow: var(--sombra);
+    }
+    .quienes-texto h2 { margin-bottom: 18px; }
+    .quienes-texto p { margin-bottom: 16px; font-size: 1.08rem; }
+    .quienes-texto .lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.42rem;
+      color: var(--verde);
+      font-style: italic;
+      margin-bottom: 20px;
+      line-height: 1.55;
+    }
+
+    /* VALORES */
+    .valores {
+      padding: 100px 0;
+      background: var(--verde);
+    }
+    .valores .seccion-header { color: var(--blanco); }
+    .valores .seccion-header h2 { color: var(--blanco); }
+    .valores .seccion-header p { color: rgba(255,255,255,0.75); }
+    .valores .divisor.centro { background: rgba(255,255,255,0.5); }
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 56px;
+    }
+    .valor-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radio);
+      padding: 36px 28px;
+      text-align: center;
+      transition: all var(--transicion);
+    }
+    .valor-card:hover {
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-4px);
+    }
+    .valor-icon {
+      width: 60px; height: 60px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--blanco);
+    }
+    .valor-card h3 { color: var(--blanco); margin-bottom: 10px; font-size: 1.2rem; }
+    .valor-card p { color: rgba(255,255,255,0.78); font-size: 1rem; }
+
+    /* MISIÓN / VISIÓN */
+    .mision {
+      padding: 100px 0;
+      background: var(--gris-fondo);
+    }
+    .mision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .mision-card {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      padding: 44px 40px;
+      border: 1px solid var(--gris-borde);
+      position: relative;
+      overflow: hidden;
+    }
+    .mision-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--verde);
+    }
+    .mision-card h3 {
+      font-size: 0.75rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--verde);
+      margin-bottom: 16px;
+    }
+    .mision-card p {
+      font-size: 1.18rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--texto);
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    /* POR QUÉ NOSOTROS */
+    .por-que {
+      padding: 100px 0;
+    }
+    .por-que-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .razon-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .razon {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .razon-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--verde-pale);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 36px;
+    }
+    .razon-body h4 { color: var(--verde); font-size: 1.08rem; margin-bottom: 6px; }
+    .razon-body p { font-size: 1rem; }
+    .por-que-foto {
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .por-que-foto img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    /* ── RESPONSIVE NOSOTROS ── */
+    @media (max-width: 1024px) {
+      .valores-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .quienes-inner,
+      .mision-grid,
+      .por-que-inner { grid-template-columns: 1fr; gap: 40px; }
+      .img-secundaria { position: static; width: 100%; height: 200px; margin-top: 16px; }
+      .quienes-imgs { padding-bottom: 0; }
+      .img-principal { height: 300px; }
+      .por-que-foto img { height: 300px; }
+      .valores-grid { grid-template-columns: 1fr; }
+      .mision-card { padding: 32px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="assets/img/logo.png" alt="Plantama" />
+        </a>
+        <a href="index.html" class="btn-home">Inicio</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <div class="nav-mobile">
+    <a href="servicios.html">Servicios</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="page-hero">
+    <div class="container reveal">
+      <span class="etiqueta">Quiénes somos</span>
+      <h1>Nosotros</h1>
+      <div class="divisor centro"></div>
+      <p style="font-size:1.15rem; max-width:580px; margin:16px auto 0;">Un equipo apasionado por la naturaleza, comprometido con hacer de cada espacio verde un lugar memorable.</p>
+    </div>
+  </section>
+
+  <!-- ══ QUIÉNES SOMOS ══ -->
+  <section class="quienes">
+    <div class="container">
+      <div class="quienes-inner">
+
+        <div class="quienes-imgs reveal">
+          <img class="img-principal"
+            src="/assets/img/quienes_somos.HEIC"
+            alt="Equipo Plantama trabajando en jardín" />
+        </div>
+
+        <div class="quienes-texto reveal">
+          <span class="etiqueta">Nuestra historia</span>
+          <h2>Somos Plantama</h2>
+          <div class="divisor"></div>
+          <p class="lead">"Nacimos de la pasión por los espacios verdes y el compromiso de hacer cada rincón un lugar vivo."</p>
+          <p>
+            Plantama es una empresa colombiana especializada en vivero y paisajismo. Nació con la misión de llevar la naturaleza a hogares, empresas y espacios públicos, ofreciendo soluciones integrales que van desde el diseño hasta el mantenimiento.
+          </p>
+          <p>
+            Con un equipo de profesionales comprometidos y el respaldo de nuestro propio vivero, garantizamos calidad en cada planta y en cada proyecto que emprendemos.
+          </p>
+          <p style="color: var(--texto-suave); font-size: 0.88rem; font-style: italic; margin-top: 8px;">
+            * Esta sección se actualizará próximamente con la historia real de Plantama.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ VALORES ══ -->
+  <section class="valores">
+    <div class="container">
+      <div class="seccion-header reveal" style="text-align:center;">
+        <span class="etiqueta" style="background:rgba(255,255,255,0.15);color:#fff;">Lo que nos mueve</span>
+        <h2>Nuestros valores</h2>
+        <div class="divisor centro"></div>
+      </div>
+      <div class="valores-grid">
+        <div class="valor-card reveal">
+          <div class="valor-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Calidad</h3>
+          <p>Cada proyecto y cada planta que entregamos cumple los más altos estándares. No hacemos concesiones cuando se trata de la satisfacción del cliente.</p>
+        </div>
+        <div class="valor-card reveal">
+          <div class="valor-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+          </div>
+          <h3>Amor por la naturaleza</h3>
+          <p>La naturaleza es nuestra guía. Trabajamos con respeto por el medio ambiente, promoviendo el uso de especies locales y prácticas sostenibles.</p>
+        </div>
+        <div class="valor-card reveal">
+          <div class="valor-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Compromiso</h3>
+          <p>Nos involucramos de principio a fin en cada proyecto. Tu visión es nuestra responsabilidad y trabajamos hasta verla hecha realidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MISIÓN / VISIÓN ══ -->
+  <section class="mision">
+    <div class="container">
+      <div class="seccion-header reveal" style="text-align:center; margin-bottom:48px;">
+        <span class="etiqueta">Propósito</span>
+        <h2>Misión y Visión</h2>
+        <div class="divisor centro"></div>
+      </div>
+      <div class="mision-grid">
+        <div class="mision-card reveal">
+          <h3>Misión</h3>
+          <p>Transformar espacios a través del paisajismo y la jardinería profesional, llevando naturaleza, color y vida a cada rincón, con un servicio de calidad que supere las expectativas de nuestros clientes.</p>
+        </div>
+        <div class="mision-card reveal">
+          <h3>Visión</h3>
+          <p>Ser la empresa de vivero y paisajismo de referencia en Colombia, reconocida por la excelencia de nuestros proyectos, la calidad de nuestras plantas y el impacto positivo que generamos en el entorno.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ POR QUÉ ELEGIRNOS ══ -->
+  <section class="por-que">
+    <div class="container">
+      <div class="por-que-inner">
+
+        <div class="reveal">
+          <span class="etiqueta">Razones para elegirnos</span>
+          <h2>¿Por qué Plantama?</h2>
+          <div class="divisor"></div>
+          <div class="razon-lista">
+            <div class="razon">
+              <span class="razon-num">01</span>
+              <div class="razon-body">
+                <h4>Vivero propio</h4>
+                <p>Contamos con nuestro propio vivero, lo que nos permite garantizar la calidad y trazabilidad de cada planta que instalamos en tus proyectos.</p>
+              </div>
+            </div>
+            <div class="razon">
+              <span class="razon-num">02</span>
+              <div class="razon-body">
+                <h4>Equipo especializado</h4>
+                <p>Nuestro equipo combina conocimiento técnico en botánica, diseño y horticultura con la pasión por hacer grandes jardines.</p>
+              </div>
+            </div>
+            <div class="razon">
+              <span class="razon-num">03</span>
+              <div class="razon-body">
+                <h4>Atención personalizada</h4>
+                <p>Cada cliente y cada espacio es único. Trabajamos de manera cercana y personalizada para entender tu visión y hacerla realidad.</p>
+              </div>
+            </div>
+            <div class="razon">
+              <span class="razon-num">04</span>
+              <div class="razon-body">
+                <h4>Resultado garantizado</h4>
+                <p>Nos aseguramos de que cada proyecto quede exactamente como lo imaginaste, con seguimiento y apoyo post-instalación.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="por-que-foto reveal">
+          <img
+            src="https://images.unsplash.com/photo-1542601906897-ecd91c7ea426?w=700&q=80"
+            alt="Profesional Plantama asesorando cliente" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/img/logo.png" alt="Plantama" />
+          <p>Expertos en paisajismo, diseño de jardines y vivero. Transformamos espacios con la fuerza de la naturaleza.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="https://wa.me/573332234848" target="_blank" rel="noopener">+57 333 223 4848</a></li>
+            <li><a href="https://instagram.com/plantama_paisajismo" target="_blank" rel="noopener">@plantama_paisajismo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Plantama Vivero y Paisajismo. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
