@@ -321,7 +321,7 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .nav-brand { gap: 8px; }
-  .nav-logo img { height: 54px; }
+  .nav-logo img { height: 140px; }
   .btn-home {
     font-size: 0.68rem;
     padding: 5px 10px;
